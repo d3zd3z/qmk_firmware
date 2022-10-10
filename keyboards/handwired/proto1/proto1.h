@@ -13,3 +13,6 @@
         { k02, k14, k01, k09, k21, k10, }, \
         { k13, k00, k12, k22, k11, k23, }, \
 }
+
+/* Allow the georgi layout to be used directly. */
+#define LAYOUT_georgi LAYOUT
