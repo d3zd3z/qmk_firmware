@@ -19,6 +19,13 @@
 
 #include "config_common.h"
 
+#define VERSION "v1.2: d3zd3z"
+
+/* Not sure why I have to define these. */
+#define VENDOR_ID 0xFEED
+#define PRODUCT_ID 0xBEEF
+#define DEVICE_VER 0x0001
+
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 6
 #define DIODE_DIRECTION COL2ROW

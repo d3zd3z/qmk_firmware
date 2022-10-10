@@ -1,0 +1,1 @@
+SRC += sten.c
