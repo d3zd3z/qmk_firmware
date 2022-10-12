@@ -30,6 +30,9 @@
 #define MATRIX_COLS 6
 #define DIODE_DIRECTION COL2ROW
 
+#define RGB_DI_PIN GP25
+#define RGBLED_NUM 1
+
 #define MATRIX_ROW_PINS { GP2, GP3, GP4, GP5, GP6 }
 #define MATRIX_COL_PINS { GP7, GP8, GP9, GP26, GP27, GP28 }
 
@@ -40,3 +43,10 @@
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP25
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 500U
+
+/* Macros for the LEDs. */
+/* Steno mode is "normal", so let's use a happy gentle blue color. */
+#define SET_LED_STENO() rgblight_setrgb(8, 8, 32)
+
+/* QWERT mode is "abnormal", so let's use a harsher orange color. */
+#define SET_LED_QWERTY() rgblight_setrgb(32, 16, 8)

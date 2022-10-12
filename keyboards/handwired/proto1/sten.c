@@ -1,4 +1,5 @@
 #include "sten.h"
+#include "rgblight.h"
 
 // Chord state
 uint32_t cChord 		= 0;		// Current Chord
@@ -106,6 +107,11 @@ bool send_steno_chord_user(steno_mode_t mode, uint8_t chord[6]) {
 #ifndef ONLYQWERTY
 	if (cChord == FN) {
 		(cMode == STENO) ? (cMode = QWERTY) : (cMode = STENO);
+		if (cMode == STENO) {
+			SET_LED_STENO();
+		} else {
+			SET_LED_QWERTY();
+		}
 		goto out;
 	}
 #endif
@@ -415,4 +421,9 @@ void CLICK_MOUSE(uint8_t kc) {
 	inMouse = true;
 	mousePress = kc;
 #endif
+}
+
+/* Initialize the steno LED to match our initial state. */
+void keyboard_post_init_user(void) {
+	SET_LED_STENO();
 }
