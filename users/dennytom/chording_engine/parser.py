@@ -3,6 +3,7 @@
 import json
 from functools import reduce 
 from chord import *
+import os.path
 import sys
 
 comma_separator = (lambda x, y: str(x) + ", " + str(y))
@@ -199,6 +200,7 @@ def main():
     if len(sys.argv) != 3:
         raise Exception("Wrong number of arguments.\n\nUsage: python parser.py keymap.json keymap.c")
     
+    script_path = os.path.dirname(sys.argv[0])
     input_filepath = sys.argv[1]
     output_filepath = sys.argv[2]
     
@@ -209,9 +211,9 @@ def main():
         keyboard_part_1 = parse_strings_for_chords(data)
         keyboard_part_2 = parse_chords(data)
         
-        engine_part_1 = open("engine.part.1", "r").read()
-        engine_part_2 = open("engine.part.2", "r").read() + "\n"
-        engine_part_3 = open("engine.part.3", "r").read()
+        engine_part_1 = open(os.path.join(script_path, "engine.part.1"), "r").read()
+        engine_part_2 = open(os.path.join(script_path, "engine.part.2"), "r").read() + "\n"
+        engine_part_3 = open(os.path.join(script_path, "engine.part.3"), "r").read()
         
         output_buffer = keyboard_part_0
         output_buffer += engine_part_1
