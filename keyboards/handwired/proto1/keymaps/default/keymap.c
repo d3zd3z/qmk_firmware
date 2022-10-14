@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [QWERTY] = LAYOUT(
         TO(STENO),  KC_Q, KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I,    KC_O,    KC_P,   KC_BSPC,
 	KC_NO    ,  BM_Z, BM_X, BM_C, BM_V, KC_B,   KC_N, BM_M, BM_COMM, BM_DOT, BM_SLSH, KC_ESC,
-	               MO(NUM), KC_LCTL, KC_BSPC,    KC_SPC, KC_ENT, MO(NUM)),
+	               MO(NUM), KC_LCTL, KC_BSPC,    KC_ENT, KC_SPC, MO(NUM)),
     /* Numbers and some random punctuation.  The rest of the punction
      * can be defined as combos. */
     [NUM] = LAYOUT(
