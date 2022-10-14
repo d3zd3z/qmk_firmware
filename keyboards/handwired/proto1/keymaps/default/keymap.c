@@ -79,6 +79,7 @@ const uint16_t PROGMEM cmb_caret[] = {KC_B, BM_M, KC_I, BM_DOT, COMBO_END};
 const uint16_t PROGMEM cmb_grave[] = {KC_B, KC_I, COMBO_END};
 const uint16_t PROGMEM cmb_pipe[] = {KC_B, KC_I, BM_COMM, COMBO_END};
 const uint16_t PROGMEM cmb_tilde[] = {KC_B, KC_U, KC_I, BM_COMM, BM_DOT, COMBO_END};
+const uint16_t PROGMEM cmb_tab[] = {KC_B, KC_U, BM_DOT, COMBO_END};
 
 /* Some are kind of silly, but we map them here in case I'm used to
  * them. */
@@ -129,6 +130,7 @@ combo_t key_combos[] = {
     COMBO(cmb_grave, KC_GRV),
     COMBO(cmb_pipe, LSFT(KC_BSLS)),
     COMBO(cmb_tilde, LSFT(KC_GRV)),
+    COMBO(cmb_tab, KC_TAB),
 
     COMBO(cmb_comma, KC_COMM),
     COMBO(cmb_minus, KC_MINS),
