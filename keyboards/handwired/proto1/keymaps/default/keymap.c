@@ -50,6 +50,47 @@ const uint16_t PROGMEM cmb_k[] = {KC_I, BM_COMM, COMBO_END};
 const uint16_t PROGMEM cmb_l[] = {KC_O, BM_DOT, COMBO_END};
 const uint16_t PROGMEM cmb_scln[] = {KC_P, BM_SLSH, COMBO_END};
 const uint16_t PROGMEM cmb_quot[] = {KC_BSPC, KC_ESC, COMBO_END};
+
+/* In addition, borrow various symbols from the Emily's symbols.
+ * These work in qwerty mode, and are the same basic as they would be
+ * in steno mode. All will be combinations with the 'B' key as that
+ * mode. */
+const uint16_t PROGMEM cmb_sklam[] = {KC_B, KC_U, BM_M, COMBO_END};
+const uint16_t PROGMEM cmb_dquot[] = {KC_B, KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM cmb_hash[] = {KC_B, KC_U, BM_M, KC_O, BM_DOT, COMBO_END};
+const uint16_t PROGMEM cmb_dollar[] = {KC_B, BM_M, KC_I, BM_COMM, KC_O, COMBO_END};
+const uint16_t PROGMEM cmb_percent[] = {KC_B, KC_U, BM_M, KC_I, BM_COMM, COMBO_END};
+const uint16_t PROGMEM cmb_amp[] = {KC_B, KC_U, BM_COMM, BM_DOT, COMBO_END};
+const uint16_t PROGMEM cmb_squot[] = {KC_B, KC_U, COMBO_END};
+const uint16_t PROGMEM cmb_lpren[] = {KC_B, KC_U, KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM cmb_rpren[] = {KC_B, BM_M, BM_COMM, BM_DOT, COMBO_END};
+const uint16_t PROGMEM cmb_lbrack[] = {KC_B, KC_U, KC_I, KC_O, KC_ENT, COMBO_END};
+const uint16_t PROGMEM cmb_rbrack[] = {KC_B, BM_M, BM_COMM, BM_DOT, KC_ENT, COMBO_END};
+const uint16_t PROGMEM cmb_lang[] = {KC_B, KC_U, KC_I, KC_O, KC_SPC, COMBO_END};
+const uint16_t PROGMEM cmb_rang[] = {KC_B, BM_M, BM_COMM, BM_DOT, KC_SPC, COMBO_END};
+const uint16_t PROGMEM cmb_lcurly[] = {KC_B, KC_U, KC_I, KC_O, KC_ENT, KC_SPC, COMBO_END};
+const uint16_t PROGMEM cmb_rcurly[] = {KC_B, BM_M, BM_COMM, BM_DOT, KC_ENT, KC_SPC, COMBO_END};
+const uint16_t PROGMEM cmb_star[] = {KC_B, KC_O, COMBO_END};
+const uint16_t PROGMEM cmb_plus[] = {KC_B, BM_DOT, COMBO_END};
+const uint16_t PROGMEM cmb_equal[] = {KC_B, KC_I, BM_COMM, KC_O, BM_DOT, COMBO_END};
+const uint16_t PROGMEM cmb_at[] = {KC_B, KC_U, KC_I, KC_O, BM_M, BM_COMM, BM_DOT, COMBO_END};
+const uint16_t PROGMEM cmb_backslash[] = {KC_B, KC_U, BM_COMM, COMBO_END};
+const uint16_t PROGMEM cmb_caret[] = {KC_B, BM_M, KC_I, BM_DOT, COMBO_END};
+const uint16_t PROGMEM cmb_grave[] = {KC_B, KC_I, COMBO_END};
+const uint16_t PROGMEM cmb_pipe[] = {KC_B, KC_I, BM_COMM, COMBO_END};
+const uint16_t PROGMEM cmb_tilde[] = {KC_B, KC_U, KC_I, BM_COMM, BM_DOT, COMBO_END};
+
+/* Some are kind of silly, but we map them here in case I'm used to
+ * them. */
+const uint16_t PROGMEM cmb_comma[] = {KC_B, BM_COMM, COMBO_END};
+const uint16_t PROGMEM cmb_minus[] = {KC_B, KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM cmb_dot[] = {KC_B, BM_M, COMBO_END};
+const uint16_t PROGMEM cmb_slash[] = {KC_B, BM_M, KC_I, COMBO_END};
+const uint16_t PROGMEM cmb_colon[] = {KC_B, KC_O, BM_DOT, COMBO_END};
+const uint16_t PROGMEM cmb_semicolon[] = {KC_B, BM_M, BM_COMM, COMBO_END};
+const uint16_t PROGMEM cmb_question[] = {KC_B, KC_U, KC_I, BM_COMM, COMBO_END};
+const uint16_t PROGMEM cmb_underscore[] = {KC_B, BM_COMM, BM_DOT, COMBO_END};
+
 combo_t key_combos[] = {
     COMBO(cmb_a, KC_A),
     COMBO(cmb_s, KC_S),
@@ -62,6 +103,41 @@ combo_t key_combos[] = {
     COMBO(cmb_l, KC_L),
     COMBO(cmb_scln, KC_SCLN),
     COMBO(cmb_quot, KC_QUOT),
+
+    /* Punctuation borrowed from emily symbols. */
+    COMBO(cmb_sklam, LSFT(KC_1)),
+    COMBO(cmb_dquot, LSFT(KC_QUOT)),
+    COMBO(cmb_hash, LSFT(KC_3)),
+    COMBO(cmb_dollar, LSFT(KC_4)),
+    COMBO(cmb_percent, LSFT(KC_5)),
+    COMBO(cmb_amp, LSFT(KC_7)),
+    COMBO(cmb_squot, KC_QUOT),
+    COMBO(cmb_lpren, LSFT(KC_9)),
+    COMBO(cmb_rpren, LSFT(KC_0)),
+    COMBO(cmb_lbrack, KC_LBRC),
+    COMBO(cmb_rbrack, KC_RBRC),
+    COMBO(cmb_lang, LSFT(KC_COMM)),
+    COMBO(cmb_rang, LSFT(KC_DOT)),
+    COMBO(cmb_lcurly, LSFT(KC_LBRC)),
+    COMBO(cmb_rcurly, LSFT(KC_RBRC)),
+    COMBO(cmb_star, LSFT(KC_8)),
+    COMBO(cmb_plus, LSFT(KC_EQL)),
+    COMBO(cmb_equal, KC_EQL),
+    COMBO(cmb_at, LSFT(KC_2)),
+    COMBO(cmb_backslash, KC_BSLS),
+    COMBO(cmb_caret, LSFT(KC_6)),
+    COMBO(cmb_grave, KC_GRV),
+    COMBO(cmb_pipe, LSFT(KC_BSLS)),
+    COMBO(cmb_tilde, LSFT(KC_GRV)),
+
+    COMBO(cmb_comma, KC_COMM),
+    COMBO(cmb_minus, KC_MINS),
+    COMBO(cmb_dot, KC_DOT),
+    COMBO(cmb_slash, KC_SLSH),
+    COMBO(cmb_colon, LSFT(KC_SCLN)),
+    COMBO(cmb_semicolon, KC_SCLN),
+    COMBO(cmb_question, LSFT(KC_SLSH)),
+    COMBO(cmb_underscore, LSFT(KC_MINS)),
 };
 uint16_t COMBO_LEN = sizeof(key_combos) / sizeof(key_combos[0]);
 
