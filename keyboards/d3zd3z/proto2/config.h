@@ -26,19 +26,19 @@
 #define PRODUCT_ID 0xBEEF
 #define DEVICE_VER 0x0001
 
-#define MATRIX_ROWS 5
-#define MATRIX_COLS 6
+#define MATRIX_ROWS 6
+#define MATRIX_COLS 5
 #define DIODE_DIRECTION COL2ROW
 
 #define RGB_DI_PIN GP25
 #define RGBLED_NUM 1
 
-#define MATRIX_ROW_PINS { GP2, GP3, GP4, GP5, GP6 }
-#define MATRIX_COL_PINS { GP7, GP8, GP9, GP26, GP27, GP28 }
+#define MATRIX_COL_PINS { GP2, GP3, GP4, GP5, GP6 }
+#define MATRIX_ROW_PINS { GP7, GP26, GP22 }
 
 #define DEBUG_MATRIX_SCAN_RATE
-#define QMK_WAITING_TEST_BUSY_PIN GP21
-#define QMK_WAITING_TEST_YIELD_PIN GP23
+#define QMK_WAITING_TEST_BUSY_PIN GP28
+#define QMK_WAITING_TEST_YIELD_PIN GP29
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP25
@@ -50,3 +50,12 @@
 
 /* QWERT mode is "abnormal", so let's use a harsher orange color. */
 #define SET_LED_QWERTY() rgblight_setrgb(32, 16, 8)
+
+/* Configuration of the split. */
+#define SPLIT_HAND_PIN GP27
+#define SPLIT_HAND_PIN_LOW_IS_LEFT
+
+#define SERIAL_USART_FULL_DUPLEX
+#define SERIAL_USART_TX_PIN GP8
+#define SERIAL_USART_RX_PIN GP9
+#define SERIAL_USART_PIN_SWAP
