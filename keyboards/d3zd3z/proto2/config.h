@@ -59,3 +59,9 @@
 #define SERIAL_USART_TX_PIN GP8
 #define SERIAL_USART_RX_PIN GP9
 #define SERIAL_USART_PIN_SWAP
+
+/* Tone down the RGB light so make it clear we have just booted, but
+ * not so bright that it is blinding. */
+#define RGBLIGHT_DEFAULT_HUE 170
+#define RGBLIGHT_DEFAULT_VAL 10
+#define RGBLIGHT_DEFAULT_SAT 64
