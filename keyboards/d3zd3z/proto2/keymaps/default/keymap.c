@@ -119,7 +119,7 @@ const uint16_t PROGMEM cmb_question[] = {KC_B, KC_U, KC_I, BM_COMM, COMBO_END};
 const uint16_t PROGMEM cmb_underscore[] = {KC_B, BM_COMM, BM_DOT, COMBO_END};
 
 /* Combinations for the thumb keys for the other layers. */
-const uint16_t PROGMEM cmb_navmdoe[] = {MO(NUM), KC_TAB, COMBO_END};
+const uint16_t PROGMEM cmb_navmode[] = {MO(NUM), KC_TAB, COMBO_END};
 const uint16_t PROGMEM cmb_nummode[] = {KC_TAB, KC_BSPC, COMBO_END};
 
 /* Navmode combos for the middle buttons. */
@@ -183,7 +183,7 @@ combo_t key_combos[] = {
     COMBO(cmb_underscore, LSFT(KC_MINS)),
 
     /* Layer selects via thumbs. */
-    COMBO(cmb_navmdoe, MO(NAV)),
+    COMBO(cmb_navmode, MO(NAV)),
     COMBO(cmb_nummode, MO(NUMPAD)),
 
     /* Navmode combos. */
