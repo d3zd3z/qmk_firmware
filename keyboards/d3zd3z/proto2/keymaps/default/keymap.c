@@ -230,25 +230,25 @@ void matrix_init_user(void) {
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
     case STENO:
-        SET_LED_STENO();
+        rgblight_setrgb(8, 8, 32);
         break;
     case QWERTY:
-        SET_LED_QWERTY();
+        rgblight_setrgb(32, 16, 8);
         break;
     case NUM:
-        rgblight_setrgb(16, 64, 16);
+        rgblight_setrgb(0, 64, 0);
         break;
     case NAV:
-        rgblight_setrgb(16, 64, 64);
+        rgblight_setrgb(0, 64, 64);
         break;
     case NUMPAD:
-        rgblight_setrgb(64, 64, 16);
+        rgblight_setrgb(64, 64, 0);
         break;
     case SYM:
         rgblight_setrgb(64, 64, 64);
         break;
     default:
-        rgblight_setrgb(64, 16, 16);
+        rgblight_setrgb(64, 0, 0);
         break;
     }
     return state;

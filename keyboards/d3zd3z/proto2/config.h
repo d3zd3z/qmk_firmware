@@ -44,13 +44,6 @@
 // #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP25
 // #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 500U
 
-/* Macros for the LEDs. */
-/* Steno mode is "normal", so let's use a happy gentle blue color. */
-#define SET_LED_STENO() rgblight_setrgb(8, 8, 32)
-
-/* QWERT mode is "abnormal", so let's use a harsher orange color. */
-#define SET_LED_QWERTY() rgblight_setrgb(32, 16, 8)
-
 /* Configuration of the split. */
 #define SPLIT_HAND_PIN GP27
 #define SPLIT_HAND_PIN_LOW_IS_LEFT
