@@ -27,9 +27,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,        STN_S2, STN_KL, STN_WL, STN_RL, STN_ST2,   STN_ST4, STN_RR, STN_BR, STN_GR, STN_SR, STN_ZR,
                        STN_N1, STN_A, STN_O,   STN_E, STN_U, STN_N2),
     [QWERTY] = LAYOUT(
-        TO(STENO),  KC_Q, KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I,    KC_O,    KC_P,   KC_BSPC,
+        TO(STENO),  KC_Q, KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I,    KC_O,    KC_P,   KC_BSLS,
 	KC_NO,      BM_Z, BM_X, BM_C, BM_V, KC_B,   KC_N, BM_M, BM_COMM, BM_DOT, BM_SLSH, KC_ESC,
-	               MO(NUM), KC_LCTL, KC_BSPC,    KC_ENT, KC_SPC, MO(NUM)),
+	               MO(NUM), KC_TAB, KC_BSPC,    KC_ENT, KC_SPC, MO(NUM)),
     /* Numbers and some random punctuation.  The rest of the punction
      * can be defined as combos. */
     [NUM] = LAYOUT(
@@ -49,7 +49,7 @@ const uint16_t PROGMEM cmb_j[] = {KC_U, BM_M, COMBO_END};
 const uint16_t PROGMEM cmb_k[] = {KC_I, BM_COMM, COMBO_END};
 const uint16_t PROGMEM cmb_l[] = {KC_O, BM_DOT, COMBO_END};
 const uint16_t PROGMEM cmb_scln[] = {KC_P, BM_SLSH, COMBO_END};
-const uint16_t PROGMEM cmb_quot[] = {KC_BSPC, KC_ESC, COMBO_END};
+const uint16_t PROGMEM cmb_quot[] = {KC_KC_BSLS, KC_ESC, COMBO_END};
 
 /* In addition, borrow various symbols from the Emily's symbols.
  * These work in qwerty mode, and are the same basic as they would be
