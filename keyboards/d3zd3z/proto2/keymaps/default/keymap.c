@@ -10,6 +10,7 @@ enum layers {
         NUM,
         NAV,
         NUMPAD,
+        SYM,
 };
 
 /* Definitions for the bottom row that can also be modifiers. */
@@ -61,6 +62,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [NUMPAD] = LAYOUT(
         KC_NO,      KC_KP_PLUS, KC_KP_MINUS, KC_KP_SLASH, KC_EQL, KC_NO,           KC_NO, KC_KP_7, KC_KP_8, KC_KP_9,  KC_KP_0, KC_NO,
         KC_NO,      BM_KP_DOT, BM_KP_COMMA, BM_KP_ENTER, KC_LSFT, KC_NO,           KC_NO, BM_KP_1, BM_KP_2,  BM_KP_3, BM_KP_0, KC_NO,
+                   KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO),
+
+    /* Numpad provides all of the keys on the numeric keypad. */
+    [SYM] = LAYOUT(
+        KC_NO,      LSFT(KC_4), LSFT(KC_1), LSFT(KC_9), LSFT(KC_0), KC_GRV,        KC_NO, LSFT(KC_5), LSFT(KC_8), LSFT(KC_2), LSFT(KC_6), LSFT(KC_MINS),
+        KC_NO,      KC_MINUS, LSFT(KC_EQL), KC_LBRC, KC_RBRC, LSFT(KC_BSLS),       KC_NO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO,
                    KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO),
 };
 
@@ -121,6 +128,7 @@ const uint16_t PROGMEM cmb_underscore[] = {KC_B, BM_COMM, BM_DOT, COMBO_END};
 /* Combinations for the thumb keys for the other layers. */
 const uint16_t PROGMEM cmb_navmode[] = {MO(NUM), KC_TAB, COMBO_END};
 const uint16_t PROGMEM cmb_nummode[] = {KC_TAB, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM cmb_symmode[] = {KC_ENT, KC_SPC, COMBO_END};
 
 /* Navmode combos for the middle buttons. */
 const uint16_t PROGMEM cmb_nav_left[] = {KC_HOME, KC_PSCR, COMBO_END};
@@ -132,6 +140,13 @@ const uint16_t PROGMEM cmb_nav_right[] = {KC_END, KC_SCRL, COMBO_END};
 const uint16_t PROGMEM cmb_num_4[] = {KC_KP_7, BM_KP_1, COMBO_END};
 const uint16_t PROGMEM cmb_num_5[] = {KC_KP_8, BM_KP_2, COMBO_END};
 const uint16_t PROGMEM cmb_num_6[] = {KC_KP_9, BM_KP_3, COMBO_END};
+
+/* Symbol mode combos for the middle keys. */
+const uint16_t PROGMEM cmb_sym_hash[] = {LSFT(KC_4), KC_MINUS, COMBO_END};
+const uint16_t PROGMEM cmb_sym_amp[] = {LSFT(KC_1), LSFT(KC_EQL), COMBO_END};
+const uint16_t PROGMEM cmb_sym_lbrace[] = {LSFT(KC_9), KC_LBRC, COMBO_END};
+const uint16_t PROGMEM cmb_sym_rbrace[] = {LSFT(KC_0), KC_RBRC, COMBO_END};
+const uint16_t PROGMEM cmb_sym_bslash[] = {KC_GRV, LSFT(KC_BSLS), COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(cmb_a, KC_A),
@@ -185,6 +200,7 @@ combo_t key_combos[] = {
     /* Layer selects via thumbs. */
     COMBO(cmb_navmode, MO(NAV)),
     COMBO(cmb_nummode, MO(NUMPAD)),
+    COMBO(cmb_symmode, MO(SYM)),
 
     /* Navmode combos. */
     COMBO(cmb_nav_left, KC_LEFT),
@@ -196,6 +212,13 @@ combo_t key_combos[] = {
     COMBO(cmb_num_4, KC_KP_4),
     COMBO(cmb_num_5, KC_KP_5),
     COMBO(cmb_num_6, KC_KP_6),
+
+    /* Symbol combos. */
+    COMBO(cmb_sym_hash, LSFT(KC_3)),
+    COMBO(cmb_sym_amp, LSFT(KC_7)),
+    COMBO(cmb_sym_lbrace, LSFT(KC_LBRC)),
+    COMBO(cmb_sym_rbrace, LSFT(KC_RBRC)),
+    COMBO(cmb_sym_bslash, KC_BSLS),
 };
 uint16_t COMBO_LEN = sizeof(key_combos) / sizeof(key_combos[0]);
 
@@ -217,6 +240,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         break;
     case NAV:
         rgblight_setrgb(16, 64, 64);
+        break;
+    case NUMPAD:
+        rgblight_setrgb(64, 64, 16);
+        break;
+    case SYM:
+        rgblight_setrgb(64, 64, 64);
         break;
     default:
         rgblight_setrgb(64, 16, 16);
