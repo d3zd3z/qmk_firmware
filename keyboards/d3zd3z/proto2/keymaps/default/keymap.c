@@ -5,10 +5,11 @@
 #include <rgblight.h>
 
 enum layers {
-	STENO,
-	QWERTY,
+        STENO,
+        QWERTY,
         NUM,
-	NAV,
+        NAV,
+        NUMPAD,
 };
 
 /* Definitions for the bottom row that can also be modifiers. */
@@ -16,6 +17,15 @@ enum layers {
 #define BM_C MT(MOD_LCTL, KC_C)
 #define BM_X MT(MOD_LALT, KC_X)
 #define BM_Z MT(MOD_LGUI, KC_Z)
+
+/* Bottom row modifiers in the numpad mode that can also be modifiers. */
+#define BM_KP_1 MT(MOD_LSFT, KC_KP_1)
+#define BM_KP_2 MT(MOD_LCTL, KC_KP_2)
+#define BM_KP_3 MT(MOD_LALT, KC_KP_3)
+#define BM_KP_0 MT(MOD_LGUI, KC_KP_0)
+#define BM_KP_DOT MT(MOD_LGUI, KC_KP_DOT)
+#define BM_KP_COMMA MT(MOD_LALT, KC_COMMA)
+#define BM_KP_ENTER MT(MOD_LCTL, KC_KP_ENTER)
 
 #define BM_M MT(MOD_LSFT, KC_M)
 #define BM_COMM MT(MOD_LCTL, KC_COMM)
@@ -30,8 +40,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [QWERTY] = LAYOUT(
         TO(STENO),  KC_Q, KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I,    KC_O,    KC_P,   KC_BSLS,
-	KC_NO,      BM_Z, BM_X, BM_C, BM_V, KC_B,   KC_N, BM_M, BM_COMM, BM_DOT, BM_SLSH, KC_ESC,
-	               MO(NUM), KC_TAB, KC_BSPC,    KC_ENT, KC_SPC, MO(NUM)),
+        KC_NO,      BM_Z, BM_X, BM_C, BM_V, KC_B,   KC_N, BM_M, BM_COMM, BM_DOT, BM_SLSH, KC_ESC,
+                       MO(NUM), KC_TAB, KC_BSPC,    KC_ENT, KC_SPC, MO(NUM)),
 
     /* Numbers and some random punctuation.  The rest of the punction
      * can be defined as combos. */
@@ -43,8 +53,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Navigation.  This encodes the middle navigation keys on a full
      * keyboard. */
     [NAV] = LAYOUT(
-	KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,           KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_PAUS, KC_NO,
-	KC_NO,      KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,   KC_PSCR, KC_BSPC, KC_DEL,  KC_SCRL, KC_NO, KC_NO,
+        KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,           KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_PAUS, KC_NO,
+        KC_NO,      KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,   KC_PSCR, KC_BSPC, KC_DEL,  KC_SCRL, KC_NO, KC_NO,
+                   KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO),
+
+    /* Numpad provides all of the keys on the numeric keypad. */
+    [NUMPAD] = LAYOUT(
+        KC_NO,      KC_KP_PLUS, KC_KP_MINUS, KC_KP_SLASH, KC_EQL, KC_NO,           KC_NO, KC_KP_7, KC_KP_8, KC_KP_9,  KC_KP_0, KC_NO,
+        KC_NO,      BM_KP_DOT, BM_KP_COMMA, BM_KP_ENTER, KC_LSFT, KC_NO,           KC_NO, BM_KP_1, BM_KP_2,  BM_KP_3, BM_KP_0, KC_NO,
                    KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO),
 };
 
@@ -104,12 +120,18 @@ const uint16_t PROGMEM cmb_underscore[] = {KC_B, BM_COMM, BM_DOT, COMBO_END};
 
 /* Combinations for the thumb keys for the other layers. */
 const uint16_t PROGMEM cmb_navmdoe[] = {MO(NUM), KC_TAB, COMBO_END};
+const uint16_t PROGMEM cmb_nummode[] = {KC_TAB, KC_BSPC, COMBO_END};
 
 /* Navmode combos for the middle buttons. */
 const uint16_t PROGMEM cmb_nav_left[] = {KC_HOME, KC_PSCR, COMBO_END};
 const uint16_t PROGMEM cmb_nav_down[] = {KC_PGDN, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM cmb_nav_up[] = {KC_PGUP, KC_DEL, COMBO_END};
 const uint16_t PROGMEM cmb_nav_right[] = {KC_END, KC_SCRL, COMBO_END};
+
+/* Numpad combos for the middle keys. */
+const uint16_t PROGMEM cmb_num_4[] = {KC_KP_7, BM_KP_1, COMBO_END};
+const uint16_t PROGMEM cmb_num_5[] = {KC_KP_8, BM_KP_2, COMBO_END};
+const uint16_t PROGMEM cmb_num_6[] = {KC_KP_9, BM_KP_3, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(cmb_a, KC_A),
@@ -162,17 +184,23 @@ combo_t key_combos[] = {
 
     /* Layer selects via thumbs. */
     COMBO(cmb_navmdoe, MO(NAV)),
+    COMBO(cmb_nummode, MO(NUMPAD)),
 
     /* Navmode combos. */
     COMBO(cmb_nav_left, KC_LEFT),
     COMBO(cmb_nav_down, KC_DOWN),
     COMBO(cmb_nav_up, KC_UP),
     COMBO(cmb_nav_right, KC_RIGHT),
+
+    /* Numpad combos. */
+    COMBO(cmb_num_4, KC_KP_4),
+    COMBO(cmb_num_5, KC_KP_5),
+    COMBO(cmb_num_6, KC_KP_6),
 };
 uint16_t COMBO_LEN = sizeof(key_combos) / sizeof(key_combos[0]);
 
 void matrix_init_user(void) {
-	steno_set_mode(STENO_MODE_GEMINI);
+        steno_set_mode(STENO_MODE_GEMINI);
 }
 
 /* Make the LEDS track the layer we have enabled. */
@@ -186,10 +214,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         break;
     case NUM:
         rgblight_setrgb(16, 64, 16);
-	break;
+        break;
     case NAV:
         rgblight_setrgb(16, 64, 64);
-	break;
+        break;
     default:
         rgblight_setrgb(64, 16, 16);
         break;
