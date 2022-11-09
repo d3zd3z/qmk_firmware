@@ -40,14 +40,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        STN_N1, STN_A, STN_O,   STN_E, STN_U, STN_N2),
 
     [QWERTY] = LAYOUT(
-        TO(STENO),  KC_Q, KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I,    KC_O,    KC_P,   KC_BSLS,
+        TO(STENO),  KC_Q, KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I,    KC_O,    KC_P,   KC_MINS,
         KC_NO,      BM_Z, BM_X, BM_C, BM_V, KC_B,   KC_N, BM_M, BM_COMM, BM_DOT, BM_SLSH, KC_ESC,
                        MO(NUM), KC_TAB, KC_BSPC,    KC_ENT, KC_SPC, MO(NUM)),
 
     /* Numbers and some random punctuation.  The rest of the punction
      * can be defined as combos. */
     [NUM] = LAYOUT(
-        KC_NO,      KC_1, KC_2, KC_3, KC_4, KC_5,    KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS,
+        KC_NO,      KC_1, KC_2, KC_3, KC_4, KC_5,    KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSLS,
         KC_NO,      LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), LSFT(KC_4), LSFT(KC_5),    LSFT(KC_6), LSFT(KC_7), LSFT(KC_8), LSFT(KC_9), LSFT(KC_0), LSFT(KC_MINS),
                    KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO),
 
