@@ -233,22 +233,22 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         rgblight_setrgb(0, 0, 32);
         break;
     case QWERTY:
-        rgblight_setrgb(0, 32, 0);
+        rgblight_setrgb(0, 16, 0);
         break;
     case NUM:
-        rgblight_setrgb(32, 0, 0);
+        rgblight_setrgb(16, 0, 0);
         break;
     case NAV:
-        rgblight_setrgb(32, 32, 0);
+        rgblight_setrgb(16, 16, 0);
         break;
     case NUMPAD:
-        rgblight_setrgb(32, 0, 32);
+        rgblight_setrgb(16, 0, 32);
         break;
     case SYM:
-        rgblight_setrgb(0, 32, 32);
+        rgblight_setrgb(0, 16, 32);
         break;
     default:
-        rgblight_setrgb(32, 32, 32);
+        rgblight_setrgb(16, 16, 32);
         break;
     }
     return state;
