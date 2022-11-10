@@ -82,7 +82,7 @@ const uint16_t PROGMEM cmb_j[] = {KC_U, BM_M, COMBO_END};
 const uint16_t PROGMEM cmb_k[] = {KC_I, BM_COMM, COMBO_END};
 const uint16_t PROGMEM cmb_l[] = {KC_O, BM_DOT, COMBO_END};
 const uint16_t PROGMEM cmb_scln[] = {KC_P, BM_SLSH, COMBO_END};
-const uint16_t PROGMEM cmb_quot[] = {KC_BSLS, KC_ESC, COMBO_END};
+const uint16_t PROGMEM cmb_quot[] = {KC_MINS, KC_ESC, COMBO_END};
 
 /* In addition, borrow various symbols from the Emily's symbols.
  * These work in qwerty mode, and are the same basic as they would be
