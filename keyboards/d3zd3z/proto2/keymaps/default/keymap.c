@@ -126,8 +126,8 @@ const uint16_t PROGMEM cmb_question[] = {KC_B, KC_U, KC_I, BM_COMM, COMBO_END};
 const uint16_t PROGMEM cmb_underscore[] = {KC_B, BM_COMM, BM_DOT, COMBO_END};
 
 /* Combinations for the thumb keys for the other layers. */
-const uint16_t PROGMEM cmb_navmode[] = {MO(NUM), KC_TAB, COMBO_END};
-const uint16_t PROGMEM cmb_nummode[] = {KC_TAB, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM cmb_nummode[] = {MO(NUM), KC_TAB, COMBO_END};
+const uint16_t PROGMEM cmb_navmode[] = {KC_TAB, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM cmb_symmode[] = {KC_ENT, KC_SPC, COMBO_END};
 
 /* Navmode combos for the middle buttons. */
