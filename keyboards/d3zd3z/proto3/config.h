@@ -26,26 +26,30 @@
 #define PRODUCT_ID 0xBEEF
 #define DEVICE_VER 0x0001
 
-#define MATRIX_ROWS 6
-#define MATRIX_COLS 5
-#define DIODE_DIRECTION COL2ROW
+/* We call the rows and columns backwards from what is in the
+ * schematic because, for some reason, qmk splits left and right
+ * across rows instead of columns. */
+#define MATRIX_ROWS 12
+#define MATRIX_COLS 4
+#define DIODE_DIRECTION ROW2COL
 
 #define RGB_DI_PIN GP25
 #define RGBLED_NUM 1
 
-#define MATRIX_COL_PINS { GP2, GP3, GP4, GP5, GP6 }
-#define MATRIX_ROW_PINS { GP7, GP26, GP22 }
+#define MATRIX_ROW_PINS { GP2, GP3, GP4, GP5, GP6, GP7 }
+#define MATRIX_COL_PINS { GP29, GP28, GP27, GP26 }
 
+/* I've never used this, but assign to pins that are otherwise unused. */
 #define DEBUG_MATRIX_SCAN_RATE
-#define QMK_WAITING_TEST_BUSY_PIN GP28
-#define QMK_WAITING_TEST_YIELD_PIN GP29
+#define QMK_WAITING_TEST_BUSY_PIN GP20
+#define QMK_WAITING_TEST_YIELD_PIN GP23
 
 // #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
 // #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP25
 // #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 500U
 
 /* Configuration of the split. */
-#define SPLIT_HAND_PIN GP27
+#define SPLIT_HAND_PIN GP22
 #define SPLIT_HAND_PIN_LOW_IS_LEFT
 
 #define SERIAL_USART_FULL_DUPLEX

@@ -1,6 +1,6 @@
-/* Proto2 */
+/* Proto3 */
 
-#include <proto2.h>
+#include <proto3.h>
 
 void matrix_init_kb(void) {
         rgblight_enable();
