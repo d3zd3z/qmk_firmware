@@ -58,7 +58,59 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ENT, KC_SPC, KC_RBRC),
 };
 
+/* The combinations of top and middle row will send the numbers from
+ * that row. */
+const uint16_t PROGMEM cmb_1[] = {KC_Q, HR_A, COMBO_END};
+const uint16_t PROGMEM cmb_2[] = {KC_W, HR_S, COMBO_END};
+const uint16_t PROGMEM cmb_3[] = {KC_E, HR_D, COMBO_END};
+const uint16_t PROGMEM cmb_4[] = {KC_R, HR_F, COMBO_END};
+const uint16_t PROGMEM cmb_5[] = {KC_T, KC_G, COMBO_END};
+const uint16_t PROGMEM cmb_6[] = {KC_Y, KC_H, COMBO_END};
+const uint16_t PROGMEM cmb_7[] = {KC_U, HR_J, COMBO_END};
+const uint16_t PROGMEM cmb_8[] = {KC_I, HR_K, COMBO_END};
+const uint16_t PROGMEM cmb_9[] = {KC_O, HR_L, COMBO_END};
+const uint16_t PROGMEM cmb_0[] = {KC_P, HR_SCLN, COMBO_END};
+
+/* The middle and bottom row will directly give the symbol from the
+ * number, without needing a shift. */
+const uint16_t PROGMEM cmb_s1[] = {HR_A, KC_Z, COMBO_END};
+const uint16_t PROGMEM cmb_s2[] = {HR_S, KC_X, COMBO_END};
+const uint16_t PROGMEM cmb_s3[] = {HR_D, KC_C, COMBO_END};
+const uint16_t PROGMEM cmb_s4[] = {HR_F, KC_V, COMBO_END};
+const uint16_t PROGMEM cmb_s5[] = {KC_G, KC_B, COMBO_END};
+const uint16_t PROGMEM cmb_s6[] = {KC_H, KC_N, COMBO_END};
+const uint16_t PROGMEM cmb_s7[] = {HR_J, KC_M, COMBO_END};
+const uint16_t PROGMEM cmb_s8[] = {HR_K, KC_COMM, COMBO_END};
+const uint16_t PROGMEM cmb_s9[] = {HR_L, KC_DOT, COMBO_END};
+const uint16_t PROGMEM cmb_s0[] = {HR_SCLN, KC_SLSH, COMBO_END};
+
+/* This combo is needed for the one remaining symbol. */
+const uint16_t PROGMEM cmb_back[] = {KC_MINS, KC_QUOT, COMBO_END};
+
 combo_t key_combos[] = {
+    COMBO(cmb_1, KC_1),
+    COMBO(cmb_2, KC_2),
+    COMBO(cmb_3, KC_3),
+    COMBO(cmb_4, KC_4),
+    COMBO(cmb_5, KC_5),
+    COMBO(cmb_6, KC_6),
+    COMBO(cmb_7, KC_7),
+    COMBO(cmb_8, KC_8),
+    COMBO(cmb_9, KC_9),
+    COMBO(cmb_0, KC_0),
+
+    COMBO(cmb_s1, LSFT(KC_1)),
+    COMBO(cmb_s2, LSFT(KC_2)),
+    COMBO(cmb_s3, LSFT(KC_3)),
+    COMBO(cmb_s4, LSFT(KC_4)),
+    COMBO(cmb_s5, LSFT(KC_5)),
+    COMBO(cmb_s6, LSFT(KC_6)),
+    COMBO(cmb_s7, LSFT(KC_7)),
+    COMBO(cmb_s8, LSFT(KC_8)),
+    COMBO(cmb_s9, LSFT(KC_9)),
+    COMBO(cmb_s0, LSFT(KC_0)),
+
+    COMBO(cmb_back, KC_BSLS),
 };
 uint16_t COMBO_LEN = sizeof(key_combos) / sizeof(key_combos[0]);
 
