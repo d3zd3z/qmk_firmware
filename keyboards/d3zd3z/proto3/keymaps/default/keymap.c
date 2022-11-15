@@ -5,9 +5,7 @@
 #include <rgblight.h>
 
 enum layers {
-        /*
         STENO,
-        */
         QWERTY,
         /*
         NUM,
@@ -17,19 +15,47 @@ enum layers {
         */
 };
 
+/* Home row keys that can be modifiers. */
+#define HR_A MT(MOD_LGUI, KC_A)
+#define HR_S MT(MOD_LALT, KC_S)
+#define HR_D MT(MOD_LCTL, KC_D)
+#define HR_F MT(MOD_LSFT, KC_F)
+
+#define HR_J MT(MOD_LSFT, KC_J)
+#define HR_K MT(MOD_LCTL, KC_K)
+#define HR_L MT(MOD_LALT, KC_L)
+#define HR_SCLN MT(MOD_LGUI, KC_SCLN)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [STENO] = LAYOUT(
+        /* Number bar row. */
+        STN_RES1, STN_N1, STN_N2, STN_N3, STN_N4, STN_N5,
+        STN_N6, STN_N7, STN_N8, STN_N9, STN_NA, STN_FN,
+
+        /* Top steno row, STKPW... */
+        TO(QWERTY), STN_S1, STN_TL, STN_PL, STN_HL, STN_ST1,
+        STN_ST3, STN_FR, STN_PR, STN_LR, STN_TR, STN_DR,
+
+        /* TODO: what should this key do? */
+        KC_NO, STN_S2, STN_KL, STN_WL, STN_RL, STN_ST2,
+        STN_ST4, STN_RR, STN_BR, STN_GR, STN_SR, STN_ZR,
+
+        /* Thumbs, numbers are on the outside edge. */
+        STN_NB, STN_A, STN_O,
+        STN_E, STN_U, STN_NC),
+
     [QWERTY] = LAYOUT(
-        KC_NO, KC_Q, KC_W, KC_E, KC_R, KC_T,
+        KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T,
         KC_Y, KC_U, KC_I, KC_O, KC_P, KC_MINS,
 
-        KC_NO, KC_A, KC_S, KC_D, KC_F, KC_G,
-        KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
+        TO(STENO), HR_A, HR_S, HR_D, HR_F, KC_G,
+        KC_H, HR_J, HR_K, HR_L, HR_SCLN, KC_QUOT,
 
         KC_ESC, KC_Z, KC_X, KC_C, KC_V, KC_B,
         KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_EQL,
 
-        KC_NO, KC_TAB, KC_BSPC,
-        KC_ENT, KC_SPC, KC_NO),
+        KC_LBRC, KC_TAB, KC_BSPC,
+        KC_ENT, KC_SPC, KC_RBRC),
 };
 
 combo_t key_combos[] = {
@@ -245,6 +271,7 @@ combo_t key_combos[] = {
     COMBO(cmb_sym_bslash, KC_BSLS),
 };
 uint16_t COMBO_LEN = sizeof(key_combos) / sizeof(key_combos[0]);
+#endif
 
 void matrix_init_user(void) {
         steno_set_mode(STENO_MODE_GEMINI);
@@ -259,6 +286,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     case QWERTY:
         rgblight_setrgb(0, 16, 0);
         break;
+#if 0
     case NUM:
         rgblight_setrgb(16, 0, 0);
         break;
@@ -271,10 +299,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     case SYM:
         rgblight_setrgb(0, 16, 32);
         break;
+#endif
     default:
         rgblight_setrgb(16, 16, 32);
         break;
     }
     return state;
 }
-#endif
