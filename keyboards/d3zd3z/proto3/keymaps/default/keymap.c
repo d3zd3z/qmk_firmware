@@ -7,9 +7,9 @@
 enum layers {
         STENO,
         QWERTY,
+        NAV,
         /*
         NUM,
-        NAV,
         NUMPAD,
         SYM,
         */
@@ -56,6 +56,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         KC_LBRC, KC_TAB, KC_BSPC,
         KC_ENT, KC_SPC, KC_RBRC),
+
+    [NAV] = LAYOUT(
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_PAUS, KC_NO,
+
+        KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,
+        KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_NO, KC_NO,
+
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_PSCR, KC_BSPC, KC_DEL, KC_SCRL, KC_NO, KC_NO,
+
+        KC_NO, KC_NO, KC_NO,
+        KC_NO, KC_NO, KC_NO)
 };
 
 /* The combinations of top and middle row will send the numbers from
@@ -87,6 +100,9 @@ const uint16_t PROGMEM cmb_s0[] = {HR_SCLN, KC_SLSH, COMBO_END};
 /* This combo is needed for the one remaining symbol. */
 const uint16_t PROGMEM cmb_back[] = {KC_MINS, KC_QUOT, COMBO_END};
 
+/* 'EU' is the NAV mode shift. */
+const uint16_t PROGMEM cmd_nav[] = {KC_ENT, KC_SPC, COMBO_END};
+
 combo_t key_combos[] = {
     COMBO(cmb_1, KC_1),
     COMBO(cmb_2, KC_2),
@@ -111,6 +127,8 @@ combo_t key_combos[] = {
     COMBO(cmb_s0, LSFT(KC_0)),
 
     COMBO(cmb_back, KC_BSLS),
+
+    COMBO(cmd_nav, MO(NAV)),
 };
 uint16_t COMBO_LEN = sizeof(key_combos) / sizeof(key_combos[0]);
 
