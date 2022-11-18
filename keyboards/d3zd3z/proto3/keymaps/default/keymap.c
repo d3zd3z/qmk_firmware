@@ -15,19 +15,6 @@ enum layers {
         */
 };
 
-/* Make the lower row into modifiers. I tried this with the home row,
- * but it causes more conflicts due to roll-over, and it is
- * frustrating not having the vi movement repeat. */
-#define LR_Z MT(MOD_LGUI, KC_Z)
-#define LR_X MT(MOD_LALT, KC_X)
-#define LR_C MT(MOD_LCTL, KC_C)
-#define LR_V MT(MOD_LSFT, KC_V)
-
-#define LR_M MT(MOD_LSFT, KC_M)
-#define LR_COMM MT(MOD_LCTL, KC_COMM)
-#define LR_DOT MT(MOD_LALT, KC_DOT)
-#define LR_SLSH MT(MOD_LGUI, KC_SLSH)
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [STENO] = LAYOUT(
         /* Number bar row. */
@@ -53,8 +40,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TO(STENO), KC_A, KC_S, KC_D, KC_F, KC_G,
         KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
 
-        KC_ESC, LR_Z, LR_X, LR_C, LR_V, KC_B,
-        KC_N, LR_M, LR_COMM, LR_DOT, LR_SLSH, KC_EQL,
+        KC_ESC, KC_Z, KC_X, KC_C, KC_V, KC_B,
+        KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_EQL,
 
         KC_LBRC, KC_TAB, KC_BSPC,
         KC_ENT, KC_SPC, KC_RBRC),
@@ -88,16 +75,16 @@ const uint16_t PROGMEM cmb_0[] = {KC_P, KC_SCLN, COMBO_END};
 
 /* The middle and bottom row will directly give the symbol from the
  * number, without needing a shift. */
-const uint16_t PROGMEM cmb_s1[] = {KC_A, LR_Z, COMBO_END};
-const uint16_t PROGMEM cmb_s2[] = {KC_S, LR_X, COMBO_END};
-const uint16_t PROGMEM cmb_s3[] = {KC_D, LR_C, COMBO_END};
-const uint16_t PROGMEM cmb_s4[] = {KC_F, LR_V, COMBO_END};
+const uint16_t PROGMEM cmb_s1[] = {KC_A, KC_Z, COMBO_END};
+const uint16_t PROGMEM cmb_s2[] = {KC_S, KC_X, COMBO_END};
+const uint16_t PROGMEM cmb_s3[] = {KC_D, KC_C, COMBO_END};
+const uint16_t PROGMEM cmb_s4[] = {KC_F, KC_V, COMBO_END};
 const uint16_t PROGMEM cmb_s5[] = {KC_G, KC_B, COMBO_END};
 const uint16_t PROGMEM cmb_s6[] = {KC_H, KC_N, COMBO_END};
-const uint16_t PROGMEM cmb_s7[] = {KC_J, LR_M, COMBO_END};
-const uint16_t PROGMEM cmb_s8[] = {KC_K, LR_COMM, COMBO_END};
-const uint16_t PROGMEM cmb_s9[] = {KC_L, LR_DOT, COMBO_END};
-const uint16_t PROGMEM cmb_s0[] = {KC_SCLN, LR_SLSH, COMBO_END};
+const uint16_t PROGMEM cmb_s7[] = {KC_J, KC_M, COMBO_END};
+const uint16_t PROGMEM cmb_s8[] = {KC_K, KC_COMM, COMBO_END};
+const uint16_t PROGMEM cmb_s9[] = {KC_L, KC_DOT, COMBO_END};
+const uint16_t PROGMEM cmb_s0[] = {KC_SCLN, KC_SLSH, COMBO_END};
 
 /* This combo is needed for the one remaining symbol. */
 const uint16_t PROGMEM cmb_back[] = {KC_MINS, KC_QUOT, COMBO_END};
@@ -117,16 +104,16 @@ combo_t key_combos[] = {
     COMBO(cmb_9, KC_9),
     COMBO(cmb_0, KC_0),
 
-    COMBO(cmb_s1, LSFT(KC_1)),
-    COMBO(cmb_s2, LSFT(KC_2)),
-    COMBO(cmb_s3, LSFT(KC_3)),
-    COMBO(cmb_s4, LSFT(KC_4)),
+    COMBO(cmb_s1, MT(MOD_LGUI, LSFT(KC_1))),
+    COMBO(cmb_s2, MT(MOD_LALT, LSFT(KC_2))),
+    COMBO(cmb_s3, MT(MOD_LCTL, LSFT(KC_3))),
+    COMBO(cmb_s4, MT(MOD_LSFT, LSFT(KC_4))),
     COMBO(cmb_s5, LSFT(KC_5)),
     COMBO(cmb_s6, LSFT(KC_6)),
-    COMBO(cmb_s7, LSFT(KC_7)),
-    COMBO(cmb_s8, LSFT(KC_8)),
-    COMBO(cmb_s9, LSFT(KC_9)),
-    COMBO(cmb_s0, LSFT(KC_0)),
+    COMBO(cmb_s7, MT(MOD_LSFT, LSFT(KC_7))),
+    COMBO(cmb_s8, MT(MOD_LCTL, LSFT(KC_8))),
+    COMBO(cmb_s9, MT(MOD_LALT, LSFT(KC_9))),
+    COMBO(cmb_s0, MT(MOD_LGUI, LSFT(KC_0))),
 
     COMBO(cmb_back, KC_BSLS),
 
