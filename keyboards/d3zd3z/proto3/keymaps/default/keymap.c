@@ -92,6 +92,9 @@ const uint16_t PROGMEM cmb_back[] = {KC_MINS, KC_QUOT, COMBO_END};
 /* 'EU' is the NAV mode shift. */
 const uint16_t PROGMEM cmd_nav[] = {KC_ENT, KC_SPC, COMBO_END};
 
+/* Stick caps lock on the grave and switch key combo. */
+const uint16_t PROGMEM cmd_caps[] = {KC_GRV, TO(STENO), COMBO_END};
+
 combo_t key_combos[] = {
     COMBO(cmb_1, MT(MOD_LGUI, KC_1)),
     COMBO(cmb_2, MT(MOD_LALT, KC_2)),
@@ -118,6 +121,8 @@ combo_t key_combos[] = {
     COMBO(cmb_back, KC_BSLS),
 
     COMBO(cmd_nav, MO(NAV)),
+
+    COMBO(cmd_caps, KC_CAPS),
 };
 uint16_t COMBO_LEN = sizeof(key_combos) / sizeof(key_combos[0]);
 
