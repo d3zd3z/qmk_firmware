@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
         KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_PAUS, KC_NO,
 
-        KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,
+        KC_NO, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_NO,
         KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_NO, KC_NO,
 
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
@@ -98,12 +98,12 @@ const uint16_t PROGMEM cmd_caps[] = {KC_GRV, TO(STENO), COMBO_END};
 combo_t key_combos[] = {
     COMBO(cmb_1, MT(MOD_LGUI, KC_1)),
     COMBO(cmb_2, MT(MOD_LALT, KC_2)),
-    COMBO(cmb_3, MT(MOD_LCTL, KC_3)),
-    COMBO(cmb_4, MT(MOD_LSFT, KC_4)),
+    COMBO(cmb_3, MT(MOD_LSFT, KC_3)),
+    COMBO(cmb_4, MT(MOD_LCTL, KC_4)),
     COMBO(cmb_5, KC_5),
     COMBO(cmb_6, KC_6),
-    COMBO(cmb_7, MT(MOD_LSFT, KC_7)),
-    COMBO(cmb_8, MT(MOD_LCTL, KC_8)),
+    COMBO(cmb_7, MT(MOD_LCTL, KC_7)),
+    COMBO(cmb_8, MT(MOD_LSFT, KC_8)),
     COMBO(cmb_9, MT(MOD_LALT, KC_9)),
     COMBO(cmb_0, MT(MOD_LGUI, KC_0)),
 
