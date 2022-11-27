@@ -62,3 +62,13 @@
 #define RGBLIGHT_DEFAULT_HUE 170
 #define RGBLIGHT_DEFAULT_VAL 10
 #define RGBLIGHT_DEFAULT_SAT 64
+
+/* This is the amount of time one of the tap/hold keys needs to be
+ * held down to be considered held.  This is a tradeoff between
+ * getting false holds and trying to do things like mouse clicks
+ * before they happen.  In my case, I'm finding that I much more
+ * frequently get the false holds rather than the other issue (which
+ * seems to more be an issue with graphical editing types of
+ * applications).  I'll increase this from the default of 200ms, a bit
+ * to see if this helps. */
+#define TAPPING_TERM 400
