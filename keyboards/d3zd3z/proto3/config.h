@@ -72,3 +72,7 @@
  * applications).  I'll increase this from the default of 200ms, a bit
  * to see if this helps. */
 #define TAPPING_TERM 400
+
+/* Increase the debounce interval from the default 5ms to see if this helps some
+ * of the bounding that I'm seeing. */
+#define DEBOUNCE 15

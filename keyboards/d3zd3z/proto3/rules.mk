@@ -21,3 +21,6 @@ WS2812_DRIVER = vendor
 SPLIT_KEYBOARD = yes
 SPLIT_TRANSPORT = serial
 SERIAL_DRIVER = vendor
+
+# Try a more aggressive debouncing algorithm.
+DEBOUNCE_TYPE = sym_defer_pk
