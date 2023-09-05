@@ -177,10 +177,13 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     case NAV:
         rgblight_setrgb(16, 16, 0);
         break;
-#if 0
-    case NUM:
-        rgblight_setrgb(16, 0, 0);
+    case FUN:
+        rgblight_setrgb(16, 16, 16);
         break;
+    case NUM:
+        rgblight_setrgb(16, 0, 32);
+        break;
+#if 0
     case NUMPAD:
         rgblight_setrgb(16, 0, 32);
         break;
