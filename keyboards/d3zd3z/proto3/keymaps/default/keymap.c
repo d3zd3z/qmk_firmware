@@ -106,8 +106,8 @@ const uint16_t PROGMEM cmb_back[] = {KC_MINS, KC_QUOT, COMBO_END};
 /* 'EU' is the NAV mode shift. */
 const uint16_t PROGMEM cmd_nav[] = {KC_ENT, KC_SPC, COMBO_END};
 
-/* 'AO' is the FUN mode shift. */
-const uint16_t PROGMEM cmd_fun[] = {KC_TAB, KC_BSPC, COMBO_END};
+/* '#A' is the FUN mode shift. */
+const uint16_t PROGMEM cmd_fun[] = {KC_LBRC, KC_TAB, COMBO_END};
 
 /* Stick caps lock on the grave and switch key combo. */
 const uint16_t PROGMEM cmd_caps[] = {KC_GRV, TO(STENO), COMBO_END};
