@@ -5,14 +5,15 @@
 #include <rgblight.h>
 
 enum layers {
-        STENO,
-        QWERTY,
-        NAV,
-        /*
-        NUM,
-        NUMPAD,
-        SYM,
-        */
+    STENO,
+    QWERTY,
+    NAV,
+    FUN,
+    /*
+    NUM,
+    NUMPAD,
+    SYM,
+    */
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -57,7 +58,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_PSCR, KC_BSPC, KC_DEL, KC_SCRL, KC_NO, KC_NO,
 
         KC_NO, KC_NO, KC_NO,
-        KC_NO, KC_NO, KC_NO)
+        KC_NO, KC_NO, KC_NO),
+
+        [FUN] = LAYOUT(
+        KC_F12, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
+        KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11,
+
+        KC_NO, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_NO,
+        KC_NO, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, KC_NO,
+
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+
+        KC_NO, KC_NO, KC_NO,
+        KC_NO, KC_NO, KC_NO),
 };
 
 /* The combinations of top and middle row will send the numbers from
@@ -92,6 +106,9 @@ const uint16_t PROGMEM cmb_back[] = {KC_MINS, KC_QUOT, COMBO_END};
 /* 'EU' is the NAV mode shift. */
 const uint16_t PROGMEM cmd_nav[] = {KC_ENT, KC_SPC, COMBO_END};
 
+/* 'AO' is the FUN mode shift. */
+const uint16_t PROGMEM cmd_fun[] = {KC_TAB, KC_BSPC, COMBO_END};
+
 /* Stick caps lock on the grave and switch key combo. */
 const uint16_t PROGMEM cmd_caps[] = {KC_GRV, TO(STENO), COMBO_END};
 
@@ -121,6 +138,7 @@ combo_t key_combos[] = {
     COMBO(cmb_back, KC_BSLS),
 
     COMBO(cmd_nav, MO(NAV)),
+    COMBO(cmd_fun, MO(FUN)),
 
     COMBO(cmd_caps, KC_CAPS),
 };
